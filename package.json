@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/kemaosen/gulo/issues"
   },
-  "homepage": "https://github.com/kemaosen/gulo#readme"
+  "homepage": "https://github.com/kemaosen/gulo#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
