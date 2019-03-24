@@ -12,7 +12,7 @@
             box-sizing: border-box;
         }
         :root{
-            --button-height:32px;
+            --button-height:32px;q
             --font-size: 14px;
             --button-bg: white;
             --border-radius:4px;
@@ -28,42 +28,12 @@
             font-size: var(--font-size);
         }
     </style>
-
-    <style>
-        .g-button{
-            font-size: var(--font-size);
-            height: var(--button-height);
-            padding: 0 1em;
-            border-radius:var(--border-radius);
-            border:1px solid var(--border-color);
-            background-color: var(--button-bg);
-        }
-        .g-button:hover{
-            border-color: var(--border-color-hover);
-        }
-        .g-button:active{
-            background-color:var(--button-active-bg);
-        }
-        .g-button:focus{
-            outline:none;
-        }
-    </style>
 </head>
 <body>
 <div id="app">
     <g-button></g-button>
-    {{massege}}
 </div>
-
 <script src="./node_modules/vue/dist/vue.min.js"></script>
-<script src="./button.js"></script>
-<script>
-    var app = new Vue({
-        el:'#app',
-        data:{
-            massege:'柯茂森'
-        }
-    })
-</script>
+<script src="./src/app.js"></script>
 </body>
 </html>
