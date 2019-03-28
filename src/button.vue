@@ -6,7 +6,7 @@
         <!--<svg v-if="icon" class="icon" >-->
             <!--<use :xlink:href="`#i-${icon}`"></use>-->
         <!--</svg>-->
-        <g-icon v-if="icon" :name="icon"></g-icon>
+        <g-icon class="icon" v-if="icon" :name="icon"></g-icon>
         <!-- slot 不能添加class 变通给他添加一个父级元素 父级添加class来影响他-->
         <div class="content">
             <slot></slot>
