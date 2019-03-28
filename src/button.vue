@@ -15,7 +15,24 @@
 
 <script>
     export default{
-        props:['icon','iconPosition']
+        // props:['icon','iconPosition']
+        props:{
+            icon:{},
+            iconPosition:{
+                type:String,
+                default:'left',// 设置默认的值
+                validator(value){// 验证用户传过来的值 是不是符合规范的 不是就报错 return=false
+                    //  方式三
+                    return value === 'left' ||  value === 'right';
+                    //  方式二return !(value !== 'left' && value !== 'right');
+                    //  方式一 if(value !== 'left' && value !== 'right'){
+                    //     return false;
+                    // }else{
+                    //     return true
+                    // }
+                }
+            }
+        }
     }
 </script>
 
