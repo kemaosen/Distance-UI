@@ -3,9 +3,10 @@
     <!--<button class="g-button" :class="{undefined:true}">-->
     <!--<button class="g-button" :class="{left:true}">-->
     <!--<button class="g-button" :class="{right:true}">-->
-        <svg v-if="icon" class="icon" >
-            <use :xlink:href="`#i-${icon}`"></use>
-        </svg>
+        <!--<svg v-if="icon" class="icon" >-->
+            <!--<use :xlink:href="`#i-${icon}`"></use>-->
+        <!--</svg>-->
+        <g-icon v-if="icon" :name="icon"></g-icon>
         <!-- slot 不能添加class 变通给他添加一个父级元素 父级添加class来影响他-->
         <div class="content">
             <slot></slot>
@@ -23,13 +24,15 @@
                 default:'left',// 设置默认的值
                 validator(value){// 验证用户传过来的值 是不是符合规范的 不是就报错 return=false
                     //  方式三
-                    return value === 'left' ||  value === 'right';
-                    //  方式二return !(value !== 'left' && value !== 'right');
-                    //  方式一 if(value !== 'left' && value !== 'right'){
-                    //     return false;
-                    // }else{
-                    //     return true
-                    // }
+                    // return value === 'left' ||  value === 'right';
+                    //  方式二
+                    // return !(value !== 'left' && value !== 'right');
+                    //  方式一
+                    if(value !== 'left' && value !== 'right'){
+                        return false;
+                    }else{
+                        return true
+                    }
                 }
             }
         }
