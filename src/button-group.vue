@@ -26,7 +26,9 @@
         /*&:not(:first-child){*/// 会将按钮边框重贴 中间的缺少左边的边框
             /*border-left: none;*/
         /*}*/
-        margin-left: -1px;//这样会将边框重叠在一起 解决
+        &:not(:first-child){
+            margin-left: -1px;//这样会将边框重叠在一起 解决
+        }
         &:hover{
             position:relative;
             z-index:1;
