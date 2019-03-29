@@ -1,13 +1,13 @@
 <template>
-    <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
+    <button class="g-button" :class="{[`icon-${iconPosition}`]:true}" @click="$emit('click')">
     <!--<button class="g-button" :class="{undefined:true}">-->
     <!--<button class="g-button" :class="{left:true}">-->
     <!--<button class="g-button" :class="{right:true}">-->
         <!--<svg v-if="icon" class="icon" >-->
             <!--<use :xlink:href="`#i-${icon}`"></use>-->
         <!--</svg>-->
-        <g-icon class="icon" v-if="icon" :name="icon"></g-icon>
-        <g-icon class="loading" name="loading"></g-icon>
+        <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
+        <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
         <!-- slot 不能添加class 变通给他添加一个父级元素 父级添加class来影响他-->
         <div class="content">
             <slot></slot>
@@ -20,6 +20,10 @@
         // props:['icon','iconPosition']
         props:{
             icon:{},
+            loading:{
+                type:Boolean,
+                default:false,
+            },
             iconPosition:{
                 type:String,
                 default:'left',// 设置默认的值
@@ -36,6 +40,8 @@
                     }
                 }
             }
+        },
+        methods:{
         }
     }
 </script>
@@ -91,5 +97,4 @@
             animation: spin 2s infinite linear;
         }
     }
-
 </style>
