@@ -1,9 +1,10 @@
 {
-  "name": "gulu",
-  "version": "0.0.1",
+  "name": "kms-gulu-2019",
+  "version": "0.0.3",
   "description": "这是一个VueUI组件库",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": { 
+    "build":"npx parcel build index.js --no-minify",
     "start":"npx parcel index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
