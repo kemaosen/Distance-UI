@@ -16,5 +16,12 @@ Vue.component('g-input',Input);
             loading2:true,
             loading3:false,
         }
-    }
+     },
+     methods:{ 
+         inputChange(e) {
+             console.log(e);
+             console.log(e.target.value);
+             console.log(1111);
+         }
+     }
 });

@@ -1,7 +1,14 @@
 <!-- 页面 -->
 <template>
     <div class="warpper" :class="{error}">
-        <input type="text" :value="value" :disabled="disabled" :readonly="readonly">
+        <input type="text" :value="value" 
+        :disabled="disabled" 
+        :readonly="readonly"
+         @change="$emit('change',$event)"
+         @input="$emit('change',$event)"
+         @fouce="$emit('change',$event)"
+         @blur="$emit('change',$event)"
+         >
         <template v-if="error">
             <icon name="error" class="icon-error"></icon>
             <span class="errorMassage">{{error}}</span>
