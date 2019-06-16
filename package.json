@@ -1,7 +1,7 @@
 {
-  "name": "kms-gulu-2019",
+  "name": "distance-ui",
   "version": "0.0.3",
-  "description": "这是一个VueUI组件库",
+  "description": "这是一个VueUI组件库Distance",
   "main": "dist/index.js",
   "scripts": { 
     "build":"npx parcel build index.js --no-minify",
@@ -11,18 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kemaosen/gulo.git"
+    "url": "git+https://github.com/kemaosen/Distance-UI.git"
   },
   "keywords": [
     "vue",
-    "ui"
+    "ui",
+    "distance"
   ],
   "author": "KMS_123",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kemaosen/gulo/issues"
+    "url": "https://github.com/kemaosen/Distance-UI/issues"
   },
-  "homepage": "https://github.com/kemaosen/gulo#readme",
+  "homepage": "https://github.com/kemaosen/Distance-UI#readme",
   "dependencies": {
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
