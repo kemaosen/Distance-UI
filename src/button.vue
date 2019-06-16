@@ -18,6 +18,7 @@
 <script>
 import Icon from './icon'
     export default{
+        name:'distance-button',
         components:{
             'g-icon':Icon
         },

@@ -7,6 +7,7 @@
 <script>
 import './svg.js'
     export default {
+        name:'distance-icon',
         props:['name']
     }
 </script>
