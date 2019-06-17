@@ -14,7 +14,8 @@ Vue.component('g-input',Input);
         return {
             loading1:false,
             loading2:true,
-            loading3:false,
+            loading3: false,
+            message:'1'
         }
      },
      methods:{ 

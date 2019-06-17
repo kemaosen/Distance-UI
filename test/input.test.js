@@ -70,14 +70,58 @@ describe('Input', () => {
         afterEach( () => { 
             vm.$destroy()
         })
+        // 单个测试
         it('支持 change', () => { 
             vm = new Constructor({}).$mount()
             const callback = sinon.fake()
             vm.$on('change', callback)
+            // 创建change 事件 活的event对象(js添加  这是不可靠的 但是测试可以使用)
             var event = new Event('change')
+            // 查找到页面中唯一的input
             let inputElement = vm.$el.querySelector('input')
+            // 使用事件
             inputElement.dispatchEvent(event)
-            expect(callback).to.have.been.called
+            expect(callback).to.have.been.calledWith(event)
+        })
+        // it('支持 input', () => { 
+        //     vm = new Constructor({}).$mount()
+        //     const callback = sinon.fake()
+        //     vm.$on('input', callback)
+        //     var event = new Event('input')
+        //     let inputElement = vm.$el.querySelector('input')
+        //     inputElement.dispatchEvent(event)
+        //     expect(callback).to.have.been.calledWith(event)
+        // })
+        // it('支持 focus', () => { 
+        //     vm = new Constructor({}).$mount()
+        //     const callback = sinon.fake()
+        //     vm.$on('focus', callback)
+        //     var event = new Event('focus')
+        //     let inputElement = vm.$el.querySelector('input')
+        //     inputElement.dispatchEvent(event)
+        //     expect(callback).to.have.been.calledWith(event)
+        // })
+        // it('支持 blur', () => { 
+        //     vm = new Constructor({}).$mount()
+        //     const callback = sinon.fake()
+        //     vm.$on('blur', callback)
+        //     var event = new Event('blur')
+        //     let inputElement = vm.$el.querySelector('input')
+        //     inputElement.dispatchEvent(event)
+        //     expect(callback).to.have.been.calledWith(event)
+        // })
+        // 多个测试
+        it('支持 change/input/focus/blur事件', () => { 
+            ['change', 'input', 'focus', 'blur'].forEach((eventName) => { 
+                vm = new Constructor({}).$mount()
+                const callback = sinon.fake()
+                vm.$on(eventName, callback)
+                var event = new Event(eventName)
+                let inputElement = vm.$el.querySelector('input')
+                inputElement.dispatchEvent(event)
+                console.log(eventName);
+                expect(callback).to.have.been.calledWith(event)
+            })
         })
     })
 })

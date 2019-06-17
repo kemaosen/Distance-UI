@@ -46,7 +46,11 @@
         <div class="box-input">
             <g-input value="赵五" @change="inputChange" ></g-input>
         </div>
-
+        <div class="box-input">
+            <g-input v-model="message" ></g-input>
+            {{message}}
+            <button @click="message+=1">sdjkf</button>
+        </div>
     <br>
     <g-button>
         我爱JS
