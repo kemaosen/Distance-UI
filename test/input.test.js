@@ -77,11 +77,12 @@ describe('Input', () => {
             vm.$on('change', callback)
             // 创建change 事件 活的event对象(js添加  这是不可靠的 但是测试可以使用)
             var event = new Event('change')
+            Object.defineProperty(event, 'target', { value: {value:'hi'}, enumerable: true});
             // 查找到页面中唯一的input
             let inputElement = vm.$el.querySelector('input')
             // 使用事件
             inputElement.dispatchEvent(event)
-            expect(callback).to.have.been.calledWith(event)
+            expect(callback).to.have.been.calledWith('hi')
         })
         // it('支持 input', () => { 
         //     vm = new Constructor({}).$mount()
@@ -117,10 +118,11 @@ describe('Input', () => {
                 const callback = sinon.fake()
                 vm.$on(eventName, callback)
                 var event = new Event(eventName)
+                Object.defineProperty(event, 'target', { value: {value:'hi'}, enumerable: true});
                 let inputElement = vm.$el.querySelector('input')
                 inputElement.dispatchEvent(event)
                 console.log(eventName);
-                expect(callback).to.have.been.calledWith(event)
+                expect(callback).to.have.been.calledWith('hi')
             })
         })
     })
