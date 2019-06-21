@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-    <div class="row" :style="{marginLeft: -gutter/2+'px',marginRight: -gutter/2+'px'}">
+    <div class="row" :style="rowStyle" :class="rowClasses">
         <slot ></slot>
     </div>
 </template>
@@ -10,6 +10,12 @@ export default {
     props:{
         gutter:{
             type:[Number,String]
+        },
+        align:{
+            type:String,
+            validator(value){
+                return ['left','right','center'].includes(value);
+            }
         }
     },
     mounted () {
@@ -31,15 +37,24 @@ export default {
     },
     watch: {},
     filters: {},
-    computed: {},
-    components: {
-
-    }
+    computed: {
+        rowClasses(){
+            let  {align} = this;
+            return [align && `align-${align}`]
+        },
+        rowStyle(){
+            let {gutter} =this;
+            return {marginLeft: -gutter/2+'px',marginRight: -gutter/2+'px'}
+        }
+    },
 }
 </script>
 
 <style scoped lang="scss">
 .row{
     display: flex;
+    &.align-left{justify-content: flex-start}
+    &.align-right{justify-content: flex-end}
+    &.align-center{justify-content: center}
 }
 </style>

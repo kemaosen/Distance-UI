@@ -1,12 +1,8 @@
 <!-- 页面 -->
 <template>
-                                            <!-- 有就显示  -->
-    <div class="col" :class="span && [`col-${span}`,offset && `offset-${offset}`]"
-        :style="{paddingLeft:gutter/2+'px',paddingRight:gutter/2+'px'}"
-    >
-        <div style="border:1px solid red;height:100px;">
-            <slot></slot>
-        </div>
+            
+    <div class="col" :class="colClasses" :style="colStyle">
+        <slot></slot>
     </div>
 </template>
 
@@ -20,29 +16,30 @@ export default {
             type:[Number,String]
         },
     },
-    mounted () {
-
-    },
     data() {
         return {
             gutter:0
         }
     },
-    methods: {
-
+    computed: {
+        colClasses(){
+            let {span,offset} = this;
+                // <!-- 有就显示  -->
+            return [
+                span && [`col-${span}`,offset && `offset-${offset}`]
+            ]
+        },
+        colStyle(){
+            return {
+                paddingLeft:this.gutter/2+'px',
+                paddingRight:this.gutter/2+'px'}
+        }
     },
-    watch: {},
-    filters: {},
-    computed: {},
-    components: {
-
-    }
 }
 </script>
 
 <style scoped lang="scss">
 .col{
-    width: 50%;
     $class-prefix: col-;
     @for $n from 1 through 24{
         &.#{$class-prefix}#{$n}{
@@ -56,6 +53,4 @@ export default {
         }
     }
 }
-// scss插值 
-
 </style>

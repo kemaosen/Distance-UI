@@ -30,34 +30,64 @@
         .box-input{
             margin: 20px;
         }
+        .demobox{
+            height:50px;
+            border:1px solid red;
+        }
     </style>
 </head>
 <body>
-    <div id="app">
-        <div style="border: 1px solid green">   
+<div id="app">
+    <g-row class="topbar">
+        <g-col  class="demobox" span="9">
+            <g-row align="center">
+                <g-col>1</g-col>
+                <g-col>2</g-col>
+                <g-col>3</g-col>
+                <g-col>4</g-col>
+            </g-row>
+        </g-col>
+        <g-col  class="demobox" span="15">
+            <g-row align="right">
+                    <g-col>1</g-col>
+                    <g-col>2</g-col>
+                    <g-col>3</g-col>
+                    <g-col>4</g-col>
+                    <g-col>5</g-col>
+                    <g-col>6</g-col>
+                    <g-col>7</g-col>
+            </g-row>
+        </g-col>
+    </g-row>
+    <g-row class="log-and-search">
+        <g-col class="demobox" span="4"></g-col>
+        <g-col class="demobox" span="14"></g-col>
+        <g-col class="demobox" span="6"></g-col>
+    </g-row>
+<hr>
+        <!-- <div style="border: 1px solid green">   
             <g-row gutter="20">
-                <g-col span="2"></g-col>
-                <g-col span="20" offset="2"></g-col>
+                <g-col span="2">1</g-col>
+                <g-col span="20" offset="2">2</g-col>
             </g-row>
             <g-row gutter="20">
-                <g-col :span="4"></g-col>
-                <g-col :span="20"></g-col>
+                <g-col :span="4">1</g-col>
+                <g-col :span="20">2</g-col>
             </g-row>
             <g-row gutter="20">
-                <g-col span="4" ></g-col>
-                <g-col span="4" offset="2"></g-col>
-                <g-col span="4" offset="5"></g-col>
-                <g-col span="4" offset="1"></g-col>
+                <g-col span="4" >1</g-col>
+                <g-col span="4" offset="2">2</g-col>
+                <g-col span="4" offset="5">3</g-col>
+                <g-col span="4" offset="1">4</g-col>
             </g-row>
             <g-row gutter="20">
-                <g-col span="2" ></g-col>
-                <g-col span="3" offset="2"></g-col>
-                <g-col span="4" offset="2"></g-col>
-                <g-col span="5" offset="1"></g-col>
-                <g-col span="5" ></g-col>
+                <g-col span="2" >1</g-col>
+                <g-col span="3" offset="2">2</g-col>
+                <g-col span="4" offset="2">3</g-col>
+                <g-col span="5" offset="1">4</g-col>
+                <g-col span="5" >5</g-col>
             </g-row>
         </div>
-
         <hr>
         <div class="box-input">
             <g-input value="张三" disabled></g-input>
@@ -77,28 +107,17 @@
             <button @click="message+=1">sdjkf</button>
         </div>
     <br>
-    <g-button>
-        我爱JS
-    </g-button>
+    <g-button> 我爱JS </g-button>
 
-    <g-button icon="settings" icon-position="right" :loading="loading1" @click="loading1 = !loading1">
-        按钮
-    </g-button>
-    <g-button icon="settings" icon-position="left" :loading="loading2" @click="loading2 = !loading2">
-        按钮
-    </g-button>
-    <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
-        按钮
-    </g-button>
+    <g-button icon="settings" icon-position="right" :loading="loading1" @click="loading1 = !loading1"> 按钮 </g-button>
+    <g-button icon="settings" icon-position="left" :loading="loading2" @click="loading2 = !loading2"> 按钮 </g-button>
+    <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3"> 按钮 </g-button>
 
-    <g-button-group>
-        <g-button icon="left" >上一页</g-button>
+    <g-button-group> <g-button icon="left" >上一页</g-button>
         <g-button >更多</g-button>
         <g-button icon="right" icon-position="right">下一页</g-button>
     </g-button-group>
-
-    <div id="test"></div>
-
+    <div id="test"></div> -->
 </div>
 <script src="./node_modules/vue/dist/vue.min.js"></script>
 <!-- <script src="//at.alicdn.com/t/font_1107619_i07ouhori7.js"></script> -->
