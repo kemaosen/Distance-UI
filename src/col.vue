@@ -39,6 +39,7 @@ export default {
     computed: {
         colClasses(){
             let {span, offset, phone, ipad, narrowPc, pc, widePc} = this;
+        // 版本一
             // let phoneClass = [];
             // let ipadClass = [];
             // let narrowPcClass = [];
@@ -59,20 +60,40 @@ export default {
             // if(widePc){
             //     widePcClass = [ widePc.span && `col-wide-pc-${widePc.span}`,widePc.offset && `offset-wide-pc-${widePc.offset}`];
             // }
+        // 版本二：
+        // 版本三：使用函数返回
+            let creatClasses = (obj,str)=>{
+                if(!obj) return [];
+                let array = [];
+                if(obj.span){
+                    array.push(`col-${str}${obj.span}`)
+                }
+                if(obj.offset){
+                    array.push(`offset-${str}${obj.offset}`)
+                }
+                return array
+            }
                 // <!-- 有就显示  -->
             return [
                 span && `col-${span}`,
                 offset && `offset-${offset}`,
+            // 版本一
                 // phoneClass,
                 // ipadClass,
                 // narrowPcClass,
                 // pcClass,
                 // widePcClass,
+            // 版本二
                 // ...(phone ? [`col-phone-${phone.span}`,`offset-phone-${phone.offset}`] : []),
-                ... (ipad ? [`col-ipad-${ipad.span}`,`offset-ipad-${ipad.offset}`] : []),
-                ... (narrowPc ? [`col-narrow-pc-${narrowPc.span}`,`offset-narrow-pc-${narrowPc.offset}`] : []),
-                ... (pc ? [`col-pc-${pc.span}`,`offset-pc-${pc.offset}`] : []),
-                ... (widePc ? [`col-wide-pc-${widePc.span}`,`offset-wide-pc-${widePc.offset}`] : []),
+                // ... (ipad ? [`col-ipad-${ipad.span}`,`offset-ipad-${ipad.offset}`] : []),
+                // ... (narrowPc ? [`col-narrow-pc-${narrowPc.span}`,`offset-narrow-pc-${narrowPc.offset}`] : []),
+                // ... (pc ? [`col-pc-${pc.span}`,`offset-pc-${pc.offset}`] : []),
+                // ... (widePc ? [`col-wide-pc-${widePc.span}`,`offset-wide-pc-${widePc.offset}`] : []),
+            // 版本三: 使用函数返回
+                ... creatClasses(ipad,'ipad-'),
+                ... creatClasses(narrowPc,'narrow-pc-'),
+                ... creatClasses(pc,'pc-'),
+                ... creatClasses(widePc,'wide-pc-'),
             ]
         },
         colStyle(){
