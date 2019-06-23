@@ -53,6 +53,7 @@ export default {
 <style scoped lang="scss">
 .row{
     display: flex;
+    flex-wrap: wrap;
     &.align-left{justify-content: flex-start}
     &.align-right{justify-content: flex-end}
     &.align-center{justify-content: center}

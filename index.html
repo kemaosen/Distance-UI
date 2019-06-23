@@ -39,7 +39,7 @@
 <body>
 <div id="app">
     <g-row class="topbar">
-        <g-col  class="demobox" span="9">
+        <g-col  class="demobox" span="8" :phone="{span:12}" :ipad="{span:15}">
             <g-row align="center">
                 <g-col>1</g-col>
                 <g-col>2</g-col>
@@ -47,7 +47,7 @@
                 <g-col>4</g-col>
             </g-row>
         </g-col>
-        <g-col  class="demobox" span="15">
+        <g-col  class="demobox" span="15" :offset="1" :phone="{span:12,offset:1}" :ipad="{span:8,offset:1}">
             <g-row align="right">
                     <g-col>1</g-col>
                     <g-col>2</g-col>
@@ -60,9 +60,9 @@
         </g-col>
     </g-row>
     <g-row class="log-and-search">
-        <g-col class="demobox" span="4"></g-col>
-        <g-col class="demobox" span="14"></g-col>
-        <g-col class="demobox" span="6"></g-col>
+        <g-col class="demobox" span="4" :ipad="{span:24}"></g-col>
+        <g-col class="demobox" span="14" :ipad="{span:24}"></g-col>
+        <g-col class="demobox" span="6" :ipad="{span:24}"></g-col>
     </g-row>
 <hr>
         <!-- <div style="border: 1px solid green">   
