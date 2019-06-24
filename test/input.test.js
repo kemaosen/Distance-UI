@@ -56,7 +56,7 @@ describe('Input', () => {
             }).$mount()
             //  获取Icon 组件中的use标签 
             const userElement = vm.$el.querySelector('use')
-            console.log(userElement);
+            // console.log(userElement);
             expect(userElement.getAttribute('xlink:href')).to.equal('#i-error')
             // 获取input 组件中 errorMassage 元素(span)
             const errorMassage = vm.$el.querySelector('.errorMassage')
@@ -121,7 +121,7 @@ describe('Input', () => {
                 Object.defineProperty(event, 'target', { value: {value:'hi'}, enumerable: true});
                 let inputElement = vm.$el.querySelector('input')
                 inputElement.dispatchEvent(event)
-                console.log(eventName);
+                // console.log(eventName);
                 expect(callback).to.have.been.calledWith('hi')
             })
         })
