@@ -8,9 +8,11 @@
 <script>
 export default {
     props:{
+        // col 间距
         gutter:{
             type:[Number,String]
         },
+        // 对其方式
         align:{
             type:String,
             validator(value){
