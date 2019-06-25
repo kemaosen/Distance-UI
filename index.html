@@ -21,9 +21,9 @@
             --border-color:#999;
             --border-color-hover:#666;
         }
-        #app{
+        /* #app{
             margin:20px;
-        }
+        } */
         body{
             font-size: var(--font-size);
         }
@@ -35,6 +35,15 @@
 </head>
 <body>
 <div id="app">
+    <g-layout style="height:100vh">
+            <g-sider class="demo"> sider</g-sider>
+        <g-layout>
+            <g-header  class="demo"></g-header>
+            <g-content class="demo"> content</g-content>
+            <g-footer  class="demo"></g-footer>
+        </g-layout>
+    </g-layout>
+    <hr>
     <g-row>
         <g-col span="24"  :narrow-pc="{span:8}">
             <div class="demo"></div>

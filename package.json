@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "这是一个VueUI组件库Distance",
   "main": "dist/index.js",
-  "scripts": { 
-    "build":"npx parcel build index.js --no-minify",
-    "start":"npx parcel index.html --no-cache",
+  "scripts": {
+    "build": "npx parcel build index.js --no-minify",
+    "start": "npx parcel index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/kemaosen/Distance-UI#readme",
   "dependencies": {
+    "layout": "^2.2.0",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },

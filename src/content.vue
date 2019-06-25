@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-    <div class="footer">
+    <div class="content">
         <slot></slot>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.footer{
-    
+.content{
+    flex-grow: 1;
 }
 </style>
