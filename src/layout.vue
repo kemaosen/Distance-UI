@@ -4,7 +4,6 @@
         <slot></slot>
     </div>
 </template>
-
 <script>
 export default {
     mounted () {
@@ -16,20 +15,9 @@ export default {
     },
     data() {
         return {
-            layoutClass:{
-                hanSider:false,
-            }
+            layoutClass:{ hanSider:false, }
         }
     },
-    methods: {
-
-    },
-    watch: {},
-    filters: {},
-    computed: {},
-    components: {
-
-    }
 }
 </script>
 
@@ -38,7 +26,6 @@ export default {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    border:1px solid red;
     &.hanSider{
         flex-direction: row;
     }

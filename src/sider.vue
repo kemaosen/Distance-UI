@@ -30,6 +30,6 @@ export default {
 
 <style scoped lang="scss">
 .sider{
-
+    height: 100%;
 }
 </style>
