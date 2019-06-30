@@ -40,7 +40,7 @@ Vue.use(Plugin);
      },
      methods: { 
          handleClickMe() { 
-             this.$toast('你好世界')
+             this.$toast('发个方法')
          },
          inputChange(e) {
              console.log(e);
