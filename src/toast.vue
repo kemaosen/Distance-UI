@@ -44,8 +44,6 @@ export default {
 
     },
     mounted () {
-        console.log(this.position);
-        
         this.updateStyles();
         this.execAutoClose();
     },
@@ -57,8 +55,7 @@ export default {
     methods: {
         updateStyles(){// 处理父元素使用min-height 线条不显示 通过js设置高度
             this.$nextTick(()=>{
-                console.log(this.$refs.wrapper.getBoundingClientRect());
-                // this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`;
+                this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`;
             })
         },
         execAutoClose(){// 控制是否自动关闭
