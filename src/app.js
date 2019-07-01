@@ -50,8 +50,8 @@ Vue.use(Plugin);
                         console.log('我知道了');
                     }
                 },
-                autoClose: false,
-                autoCloseDelay: 3,
+                autoClose: true,
+                autoCloseDelay: 2,
                 enableHTML: false,
             })
          },

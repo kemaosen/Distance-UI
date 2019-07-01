@@ -66,8 +66,9 @@ export default {
             }
         },
         close(){
-            this.$el.remove()
-            this.$destroy()
+            this.$el.remove();
+            this.$emit('close');
+            this.$destroy();
         },
         onClickClose(){
             this.close();
@@ -95,7 +96,12 @@ export default {
 $toast-height:40px;
 $toast-bg:rgba(0,0,0,0.75);
 $toast-size: 14px;
+@keyframes fade-in{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 .toast{
+    animation: fade-in 1s;
     position:fixed;
     left: 50%; 
     // top: 0;
