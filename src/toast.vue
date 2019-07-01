@@ -1,6 +1,6 @@
 <!-- Toast -->
 <template>
-    <div class="toast" ref="wrapper"> 
+    <div class="toast" ref="wrapper" :class="toastClasses"> 
         <div class="message">
             <slot v-if="!enableHTML"></slot>
             <div v-else v-html="$slots.default[0]"></div>
@@ -22,7 +22,7 @@ export default {
         },
         autoCloseDelay:{
             type:Number,
-            default:5
+            default:50
         },
         closeButton:{
             type:Object,
@@ -33,9 +33,19 @@ export default {
         enableHTML:{
             type:Boolean,
             default:false,
+        },
+        position:{
+            type: String,
+            default:'top',
+            validator(value){
+                return ['top','bottom','middle'].indexOf(value) >= 0
+            },
         }
+
     },
     mounted () {
+        console.log(this.position);
+        
         this.updateStyles();
         this.execAutoClose();
     },
@@ -47,7 +57,8 @@ export default {
     methods: {
         updateStyles(){// 处理父元素使用min-height 线条不显示 通过js设置高度
             this.$nextTick(()=>{
-                this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`;
+                console.log(this.$refs.wrapper.getBoundingClientRect());
+                // this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`;
             })
         },
         execAutoClose(){// 控制是否自动关闭
@@ -70,9 +81,15 @@ export default {
     },
     watch: {},
     filters: {},
-    computed: {},
+    computed: {
+        toastClasses(){
+            return {
+                [`position-${this.position}`]:true,
+            }
+        }
+    },
     components: {
-
+        
     }
 }
 </script>
@@ -83,9 +100,8 @@ $toast-bg:rgba(0,0,0,0.75);
 $toast-size: 14px;
 .toast{
     position:fixed;
-    top: 0;
     left: 50%; 
-    transform: translateX(-50%);
+    // transform: translateX(-50%);
     font-size:$toast-size;
     line-height: 1.8;
     min-height: $toast-height;
@@ -99,10 +115,13 @@ $toast-size: 14px;
     .message{
         padding: 8px 0；
     }
+    &.position-top{top: 0;transform: translateX(-50%);}
+    &.position-bottom{bottom: 0;transform: translateX(-50%);}
+    &.position-middle{top: 50%;transform: translate(-50%,50%);}
 }
     .close{
         padding-left: 16px;
         flex-shrink: 0; 
     }
-    .line{height:100%;border-left: 1px solid #666;margin-left: 10px;}
+    .line{border-left: 1px solid #666;margin-left: 10px;}
 </style>

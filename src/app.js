@@ -10,7 +10,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Content from './content'
 import Sider from './sider'
-import Toast from './toast'
+// import Toast from './toast'
 import Plugin from './plugin.js'
 
 Vue.component('g-button',Button);
@@ -24,7 +24,7 @@ Vue.component('g-header',Header);
 Vue.component('g-footer',Footer);
 Vue.component('g-content',Content);
 Vue.component('g-sider',Sider);
-Vue.component('g-toast',Toast);
+// Vue.component('g-toast',Toast);
 Vue.use(Plugin);
  new Vue({
     el:'#app',
@@ -37,10 +37,17 @@ Vue.use(Plugin);
         }
      },
      mounted() { 
+
+        this.$toast('发个方法',{position:'bottom',closeButton: {
+            text: "知道了",
+            callback() { 
+                console.log('我知道了');
+            }
+        }})
      },
      methods: { 
          handleClickMe() { 
-             this.$toast('发个方法')
+             this.$toast('发个方法',{position:'bottom'})
          },
          inputChange(e) {
              console.log(e);
