@@ -22,7 +22,7 @@ export default {
         },
         autoCloseDelay:{
             type:Number,
-            default:50
+            default:5
         },
         closeButton:{
             type:Object,
@@ -36,7 +36,7 @@ export default {
         },
         position:{
             type: String,
-            default:'top',
+            default:'middle',
             validator(value){
                 return ['top','bottom','middle'].indexOf(value) >= 0
             },
@@ -101,6 +101,7 @@ $toast-size: 14px;
 .toast{
     position:fixed;
     left: 50%; 
+    // top: 0;
     // transform: translateX(-50%);
     font-size:$toast-size;
     line-height: 1.8;

@@ -37,13 +37,19 @@ Vue.use(Plugin);
         }
      },
      mounted() { 
-
-        this.$toast('发个方法',{position:'bottom',closeButton: {
-            text: "知道了",
-            callback() { 
-                console.log('我知道了');
-            }
-        }})
+            
+        this.$toast('发个方法', {
+            position: 'bottom',
+            closeButton: {
+                text: "知道了",
+                callback() { 
+                    console.log('我知道了');
+                }
+            },
+            autoClose: false,
+            autoCloseDelay: 3,
+            enableHTML: false,
+        })
      },
      methods: { 
          handleClickMe() { 
