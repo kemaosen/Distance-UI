@@ -50,7 +50,7 @@ Vue.use(Plugin);
                         console.log('我知道了');
                     }
                 },
-                autoClose: true,
+                autoClose: false,
                 autoCloseDelay: 2,
                 enableHTML: false,
             })
