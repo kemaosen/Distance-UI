@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-    <div class="tabs-item" @click="handleChangTabs" :class="classes">   
+    <div class="tabs-item" @click="handleChangTabs" :class="classes" :data-name="name">   
         <slot></slot>
     </div>
 </template>
@@ -20,17 +20,19 @@ export default {
         },
     },
     created(){
-        this.eventBus.$on('update:selected',(name,vm)=>{
-            // if(name === this.name){
-            //     console.log('我被选中了'+this.name);
-            //     this.active = true;
-            // }else{
-            //     console.log('我没有被选中了'+this.name);
-            //     this.active = false;
-            // }
-            //  this.active ：  先判断 name是否等于 this.name 相同返回true  否则返回false
-            this.active = name == this.name;
-        })
+        if(this.eventBus){
+            this.eventBus.$on('update:selected',(name,vm)=>{
+                // if(name === this.name){
+                //     console.log('我被选中了'+this.name);
+                //     this.active = true;
+                // }else{
+                //     console.log('我没有被选中了'+this.name);
+                //     this.active = false;
+                // }
+                //  this.active ：  先判断 name是否等于 this.name 相同返回true  否则返回false
+                this.active = name == this.name;
+            })
+        }
     },
     mounted () {
     },
@@ -42,9 +44,11 @@ export default {
     methods: {
         handleChangTabs(){
             if(this.disabled){return }
-            this.eventBus.$emit('update:selected',this.name,this)
+            if(this.eventBus){
+                this.eventBus.$emit('update:selected',this.name,this)
+            }
+            this.$emit('click',this)
         }
-
     },
     watch: {},
     filters: {},
