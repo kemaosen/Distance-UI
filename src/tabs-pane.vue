@@ -47,7 +47,6 @@ export default {
 <style scoped lang="scss">
 .tabs-item{
     &.active{
-        background-color: red;
     }
 }
 </style>

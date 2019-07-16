@@ -15,9 +15,10 @@ export default {
     inject:['eventBus'],
     mounted () {
         this.eventBus.$on('update:selected',(item,vm)=>{
-            console.log(item);
-            console.log(vm.$el);
-            // console.log(vm.$el);
+            let {width,height,top,left} = vm.$el.getBoundingClientRect();
+            this.$refs.line.style.width = width+'px';
+            this.$refs.line.style.left = left+'px';
+            console.log(width,height,top,left);
         })
     },
     created(){
@@ -42,19 +43,23 @@ export default {
 <style scoped lang="scss">
 $tabs-height : 40px;
 $blue:blue;
+$border-solid:#ddd;
 .tabs-header{
     display: flex;
     height: $tabs-height;
     justify-content: flex-start;
     position: relative;
+    border-bottom:1px solid $border-solid;
     >.line{
+        transition: all 350ms;
         position: absolute;
         bottom: 0;
         border-bottom: 1px solid $blue;
-        width: 100px;
     }
     >.action-wrapper{
-        margin-left:  auto
+        margin-left:  auto;
+        display: flex;
+        align-self: center;
     }
 }
 </style>
