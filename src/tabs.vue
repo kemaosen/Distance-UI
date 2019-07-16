@@ -1,15 +1,18 @@
 <!-- 页面 -->
 <template>
-    <div>   
+    <div class="tabs">   
         <slot></slot>
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
+    name:'DistanceTabs',
     props:{
-        selectedTab:{
-            type:String,
+        selected:{
+            type:String|Boolean,
+            required:true
         },
         direction:{
             type:String,
@@ -19,12 +22,20 @@ export default {
             }
         }
     },
+    provide(){
+        return {
+            eventBus: this.eventBus,
+        }
+    },
+    created(){
+    },
     mounted () {
-
+        console.log(this.selected);
+        this.eventBus.$emit('update:selected',this.selected)
     },
     data() {
-        return {
-
+        return {    
+            eventBus: new Vue(),
         }
     },
     methods: {
@@ -40,5 +51,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.tabs{
+    
+}
 </style>

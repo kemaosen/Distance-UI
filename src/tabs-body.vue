@@ -7,8 +7,9 @@
 
 <script>
 export default {
+    name:'DistanceTabsBody',
+    inject:['eventBus'],
     mounted () {
-
     },
     data() {
         return {

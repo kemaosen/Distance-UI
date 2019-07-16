@@ -32,7 +32,7 @@
 <body>
 <div id="app">
     <g-button @click="handleClickMe">点我</g-button>
-    <g-tabs :select.sync="selectedTab">
+    <g-tabs :selected.sync="selectedTab">
         <!-- 等价与下面的写法 -->
     <!-- <g-tabs select="selectedTab" @update:selected="selectedTab = $event"> -->
         <g-tabs-head>
