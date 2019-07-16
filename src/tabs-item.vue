@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-    <div class="tabs-item" @click="xxxx" :class="classes">   
+    <div class="tabs-item" @click="handleChangTabs" :class="classes">   
         <slot></slot>
     </div>
 </template>
@@ -40,7 +40,8 @@ export default {
         }
     },
     methods: {
-        xxxx(){
+        handleChangTabs(){
+            if(this.disabled){return }
             this.eventBus.$emit('update:selected',this.name,this)
         }
 
@@ -49,7 +50,7 @@ export default {
     filters: {},
     computed: {
         classes(){
-            return {active:this.active}
+            return {active:this.active,disabled:this.disabled}
         }
     },
     components: {
@@ -60,6 +61,7 @@ export default {
 
 <style scoped lang="scss">
 $blue:blue;
+$disabled-text-color:grey;
 .tabs-item{
     flex-shrink: 0;
     padding: 0 2em;
@@ -70,6 +72,9 @@ $blue:blue;
 
     &.active{
         color: $blue;
+    }
+    &.disabled{
+        color: $disabled-text-color;
     }
 }
 </style>
