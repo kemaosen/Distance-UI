@@ -30,8 +30,17 @@ export default {
     created(){
     },
     mounted () {
-        console.log(this.selected);
-        this.eventBus.$emit('update:selected',this.selected)
+        // 页面一加载 获取当前被选中的元素 并高亮他  用于动画 
+        this.$children.forEach((vm)=>{
+            if(vm.$options.name === 'DistanceTabsHeader'){
+                vm.$children.forEach((item)=>{
+                    if(item.$options.name === 'DistanceTabItem' && item.name == this.selected){
+                        console.log(item);
+                        this.eventBus.$emit('update:selected',this.selected,item)
+                    }
+                })
+            }
+        })
     },
     data() {
         return {    
@@ -52,6 +61,6 @@ export default {
 
 <style scoped lang="scss">
 .tabs{
-    
+
 }
 </style>

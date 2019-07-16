@@ -2,6 +2,7 @@
 <template>
     <div class="tabs-header">   
         <slot></slot>
+        <div class="line" ref="line"></div>
         <div class="action-wrapper">
             <slot name="action" ></slot>
         </div>
@@ -33,10 +34,18 @@ export default {
 
 <style scoped lang="scss">
 $tabs-height : 40px;
+$blue:blue;
 .tabs-header{
     display: flex;
     height: $tabs-height;
     justify-content: flex-start;
+    position: relative;
+    >.line{
+        position: absolute;
+        bottom: 0;
+        border-bottom: 1px solid $blue;
+        width: 100px;
+    }
     >.action-wrapper{
         margin-left:  auto
     }
