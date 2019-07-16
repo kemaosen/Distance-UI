@@ -14,6 +14,13 @@ export default {
     name:'DistanceTabsHeader',
     inject:['eventBus'],
     mounted () {
+        this.eventBus.$on('update:selected',(item,vm)=>{
+            console.log(item);
+            console.log(vm.$el);
+            // console.log(vm.$el);
+        })
+    },
+    created(){
     },
     data() {
         return {
@@ -21,7 +28,7 @@ export default {
         }
     },
     methods: {
-
+        
     },
     watch: {},
     filters: {},

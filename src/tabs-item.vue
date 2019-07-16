@@ -20,7 +20,7 @@ export default {
         },
     },
     created(){
-        this.eventBus.$on('update:selected',(name)=>{
+        this.eventBus.$on('update:selected',(name,vm)=>{
             // if(name === this.name){
             //     console.log('我被选中了'+this.name);
             //     this.active = true;
@@ -41,7 +41,7 @@ export default {
     },
     methods: {
         xxxx(){
-            this.eventBus.$emit('update:selected',this.name)
+            this.eventBus.$emit('update:selected',this.name,this)
         }
 
     },
