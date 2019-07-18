@@ -16,8 +16,8 @@ import TabsPane from './tabs-pane'
 import TabsItem from './tabs-item'
 import TabsHeader from './tabs-header'
 import TabsBody from './tabs-body'
-// import Toast from './toast'
 import Plugin from './plugin.js'
+import Popover from './popover'
 
 Vue.component('g-button',Button);
 Vue.component('g-icon',Icon);
@@ -35,6 +35,7 @@ Vue.component('g-tabs-pane',TabsPane);
 Vue.component('g-tabs-item',TabsItem);
 Vue.component('g-tabs-head',TabsHeader);
 Vue.component('g-tabs-body',TabsBody);
+Vue.component('g-popover', Popover);
 // Vue.component('g-toast',Toast);
 Vue.use(Plugin);
  new Vue({
