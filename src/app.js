@@ -54,6 +54,9 @@ Vue.use(Plugin);
 
      },
      methods: { 
+         yyyy() { 
+             console.log('yyy');
+         },
          handleClickMe() { 
             this.$toast('发个方法', {
                 position: 'bottom',

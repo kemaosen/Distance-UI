@@ -32,12 +32,22 @@
 </head>
 <body>
 <div id="app">
-    <g-popover>
-        <template slot="content">
-            这是一段问题再度回归发射点发的客户了
-        </template>
-        点击
-    </g-popover>
+    <div style="padding:500px;margin-left:500px">   </div>
+    <div style="overflow: hidden;" @click="yyyy">
+        <g-popover >
+            <template slot="content">
+                这是一段问题再度回归发射点发的客户了
+            </template>
+            <g-button> 点击 </g-button>
+        </g-popover>
+
+        <g-popover>
+            <template slot="content">
+                四大护法就是打开拉萨的空间发
+            </template>
+            <g-button> 点我呀 </g-button>
+        </g-popover>
+    </div>
     <!-- <g-button @click="handleClickMe">点我</g-button> -->
     <!-- 等价与下面的写法 -->
 <!-- <g-tabs select="selectedTab" @update:selected="selectedTab = $event"> -->
