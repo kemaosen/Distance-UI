@@ -19,7 +19,6 @@ export default {
         }else{
             this.$refs.popover.addEventListener('mouseenter', ()=>{ this.open(); })
             this.$refs.popover.addEventListener('mouseleave', ()=>{ this.close(); })
-
         }
     },
     destroyed(){
@@ -32,9 +31,7 @@ export default {
         }
     },
     data() {
-        return { visible:false, 
-
-        }
+        return { visible:false, }
     },
     props:{
         position:{
