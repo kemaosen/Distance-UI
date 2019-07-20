@@ -21,9 +21,10 @@
             --border-color:#999;
             --border-color-hover:#666;
         }
-        /* #app{
+        #app{
+            padding: 100px;
             margin:20px;
-        } */
+        }
         body{
             font-size: var(--font-size);
             padding: 200px;
@@ -32,7 +33,14 @@
 </head>
 <body>
 <div id="app">
-    <div @click="yyyy">
+    <g-collapse>
+            <g-collapse-item title="第一个">内容1</g-collapse-item>
+            <g-collapse-item title="第二个">内容2</g-collapse-item>
+            <g-collapse-item title="第三个">内容3</g-collapse-item>
+    </g-collapse>
+
+
+    <!-- <div @click="yyyy">
         <g-popover position="bottom">
             <template slot="content">
                 这是一段问题再度回归发射点发的客户了
@@ -64,40 +72,7 @@
             </template>
             <g-button> 点我呀 </g-button>
         </g-popover>
-    </div>
-    <div @click="yyyy" style="margin-top: 50px;">
-        <g-popover position="bottom" trigger="hover" >
-            <template slot="content">
-                这是一段问题再度回归发射点发的客户了
-                这是一段问题再度回归发射点发的客户了
-                这是一段问题再度回归发射点发的客户了
-                这是一段问题再度回归发射点发的客户了
-                这是一段问题再度回归发射点发的客户了 
-            </template>
-            <g-button> 点击 </g-button>
-        </g-popover>
-
-        <g-popover trigger="hover" >
-            <template slot="content">
-                四大护法就是打开拉萨的空间发
-            </template>
-            <g-button> 点我呀 </g-button>
-        </g-popover>
-
-        <g-popover  trigger="hover" position="left"
-        >
-            <template slot="content">
-                四大护法就是打开拉萨的空间发
-            </template>
-            <g-button> 点我呀 </g-button>
-        </g-popover>
-        <g-popover trigger="hover"  position="right">
-            <template slot="content">
-                四大护法就是打开拉萨的空间发
-            </template>
-            <g-button> 点我呀 </g-button>
-        </g-popover>
-    </div>
+    </div> -->
     <!-- <g-button @click="handleClickMe">点我</g-button> -->
     <!-- 等价与下面的写法 -->
 <!-- <g-tabs select="selectedTab" @update:selected="selectedTab = $event"> -->
