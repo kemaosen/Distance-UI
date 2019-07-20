@@ -12,12 +12,18 @@
 export default {
     props:{
         title:String,
+        name:{
+            type:String,
+            required: true,
+        }
     },
     inject:['eventBus'],
     mounted () {
-        this.eventBus && this.eventBus.$on('update:selected',(vm)=>{
-            if(vm !== this){// 当前组件的this 与传进来的this 不相等  关闭当前组件的手风琴
+        this.eventBus.$on('update:selected',(name)=>{
+            if(name !== this.name){// 当前组件的this 与传进来的this 不相等  关闭当前组件的手风琴
                 this.close();
+            }else{
+                this.open = true
             }
         })
     },
@@ -34,8 +40,7 @@ export default {
             if(this.open){
                 this.open = false;
             }else{
-                this.open = true;
-                this.eventBus && this.eventBus.$emit('update:selected',this)
+                this.eventBus.$emit('update:selected',this.name)
             }
         }
     },

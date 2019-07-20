@@ -9,20 +9,22 @@
 import Vue from 'vue'
 export default {
     props:{
-        single:{
+        single:{// 是否可以自动收缩
             type:Boolean,
             default:false
+        },
+        selected:{
+            type:String,
+
         }
     },
     provide(){
-        if(this.single){
-            return {
-                eventBus: this.eventBus,
-            }
+        return {
+            eventBus: this.eventBus,
         }
     },
     mounted () {
-
+        this.eventBus.$emit('update:selected',this.selected)
     },
     data() {
         return {
