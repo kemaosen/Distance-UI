@@ -1,7 +1,7 @@
 <!-- 手风琴页面 -->
 <template>
     <div class="collapseTitle">
-        <div class="title" @click="open=!open">{{title}}</div>
+        <div class="title" @click="handleShow">{{title}}</div>
         <div class="content" v-if="open">    
             <slot></slot >
         </div>
@@ -13,8 +13,13 @@ export default {
     props:{
         title:String,
     },
+    inject:['eventBus'],
     mounted () {
-
+        this.eventBus && this.eventBus.$on('update:selected',(vm)=>{
+            if(vm !== this){// 当前组件的this 与传进来的this 不相等  关闭当前组件的手风琴
+                this.close();
+            }
+        })
     },
     data() {
         return {
@@ -22,7 +27,17 @@ export default {
         }
     },
     methods: {
-
+        close(){
+            this.open = false;
+        },
+        handleShow(){
+            if(this.open){
+                this.open = false;
+            }else{
+                this.open = true;
+                this.eventBus && this.eventBus.$emit('update:selected',this)
+            }
+        }
     },
     watch: {},
     filters: {},
