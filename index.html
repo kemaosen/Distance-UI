@@ -33,12 +33,13 @@
 </head>
 <body>
 <div id="app">
-    <g-collapse single selected="2">
+    <g-collapse single :selected.sync="selectedTab">
             <g-collapse-item title="第一个" name="1">内容1</g-collapse-item>
             <g-collapse-item title="第二个" name="2">内容2</g-collapse-item>
             <g-collapse-item title="第三个" name="3">内容3</g-collapse-item>
-    </g-collapse>
-
+        </g-collapse>
+        {{selectedTab}}
+        
 
     <!-- <div @click="yyyy">
         <g-popover position="bottom">

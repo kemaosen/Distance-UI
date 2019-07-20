@@ -14,7 +14,7 @@ export default {
             default:false
         },
         selected:{
-            type:String,
+            type:String|Number,
 
         }
     },
@@ -24,7 +24,13 @@ export default {
         }
     },
     mounted () {
-        this.eventBus.$emit('update:selected',this.selected)
+        // 页面加载通知子组件 显示那个 
+        this.eventBus.$emit('update:selected',this.selected);
+        // 在父组件使用变量控制的时候 需要实时对接数据  父组件与当前组件(本页面) 值同步
+        this.eventBus.$on('update:selected',(name)=>{
+            console.log(name);
+            this.$emit('update:selected',name)
+        })
     },
     data() {
         return {
