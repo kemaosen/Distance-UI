@@ -57,19 +57,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 32px;
-$border-color: #999;
-$border-color-hover: #666;
-$border-radius: 4px;
-$font-size: 12px;
-$box-color: rgba(0,0,0,.5);
+@import 'var';
 
-// error
-$red: #F1453D;
     .warpper{
         display: inline-flex; align-items: center; font-size: $font-size;
         > :not(:last-child){margin-right: .5em; } 
-        >input{ height: $height; border: 1px solid $border-color; padding: 0 8px; border-radius: $border-radius;
+        >input{ height: $input-height; border: 1px solid $border-color; padding: 0 8px; border-radius: $border-radius;
             &:hover{ border:1px solid $border-color-hover; }
             &:focus{ box-shadow: inset 0 1px 3px $box-color; outline: none; }
             &[disabled],&[readonly]{ border-color: #aaa; color: #aaa; cursor: not-allowed; }

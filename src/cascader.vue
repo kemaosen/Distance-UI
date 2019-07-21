@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-    <div>
+    <div class="cascader">
 
     </div>
 </template>
@@ -29,4 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.cascader{
+    
+}
 </style>

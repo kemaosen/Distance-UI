@@ -52,14 +52,7 @@ import Icon from './icon'
 </script>
 
 <style scoped lang="scss">
-$font-size: 14px;
-$button-height: 32px;
-$button-bg: white;
-$button-active-bg: #eee;
-$border-radius: 4px;
-$color: #333;
-$border-color: #999;
-$border-color-hover: #666;
+@import 'var';
     @keyframes spin {
         0%{
             trasdform:rotate(0deg);
@@ -70,7 +63,7 @@ $border-color-hover: #666;
     }
     .g-button{
         font-size: $font-size;
-        height: $button-height;
+        height: $input-height;
         padding: 0 1em;
         border-radius:$border-radius;
         border:1px solid $border-color;
