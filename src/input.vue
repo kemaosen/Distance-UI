@@ -19,7 +19,7 @@
 <script>
 import Icon from './icon'
 export default {
-    name:'distance-input',
+    name:'DistanceInput',
     props:{
         value:{
             type: String,

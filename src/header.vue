@@ -1,4 +1,4 @@
-<!-- 页面 -->
+<!-- Layout页面 -->
 <template>
     <div class="header">
         <slot></slot>
@@ -7,6 +7,7 @@
 
 <script>
 export default {
+    name:'DistanceLayoutHeader',
     mounted () {
 
     },

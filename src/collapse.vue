@@ -8,6 +8,7 @@
 <script>
 import Vue from 'vue'
 export default {
+    name:'DistanceCollapse',
     props:{
         single:{// 是否可以自动收缩
             type:Boolean,

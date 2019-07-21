@@ -6,6 +6,7 @@
 </template>
 <script>
 export default {
+    name:'DistanceLayout',
     mounted () {
         this.$children.forEach((element)=>{
             if(element.$options.name === 'GSider'){

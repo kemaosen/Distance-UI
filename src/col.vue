@@ -18,6 +18,7 @@ let validator = (value)=>{
     return valid 
 }
 export default {
+    name:'DistanceCol',
     props:{
         span:{
             type:[Number,String]

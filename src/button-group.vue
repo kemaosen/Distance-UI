@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        name:'distance-group-button',
+        name:'DistanceGroupButton',
         mounted(){
             for(let node of  this.$el.children){
                 if(node.nodeName.toLowerCase() !== 'button'){

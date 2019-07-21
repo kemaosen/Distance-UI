@@ -10,6 +10,7 @@
 
 <script>
 export default {
+    name:'DistanceCollapseItem',
     props:{
         title:String,
         name:{

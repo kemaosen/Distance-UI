@@ -1,13 +1,13 @@
 <!-- 页面 -->
 <template>
-    <div class="sider">
-        <slot></slot>
+    <div>
+
     </div>
 </template>
 
 <script>
 export default {
-    name:'DistanceSider',
+    name:'DistanceCascader',
     mounted () {
 
     },
@@ -29,7 +29,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.sider{
-    height: 100%;
-}
 </style>
