@@ -1,4 +1,5 @@
 module.exports = {
+    base:'/Distance-UI/',
     themeConfig: {
         // 配置导航栏
         nav: [
