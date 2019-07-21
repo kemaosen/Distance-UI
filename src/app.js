@@ -50,7 +50,7 @@ Vue.use(Plugin);
             loading2:true,
             loading3: false,
             message: '1',
-            selectedTab:'1',
+            selectedTab:['1','2'],
         }
      },
      mounted() { 

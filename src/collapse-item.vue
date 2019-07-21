@@ -1,7 +1,7 @@
 <!-- 手风琴页面 -->
 <template>
     <div class="collapseTitle">
-        <div class="title" @click="handleShow">{{title}}</div>
+        <div class="title" @click="toggle">{{title}}</div>
         <div class="content" v-if="open">    
             <slot></slot >
         </div>
@@ -19,11 +19,12 @@ export default {
     },
     inject:['eventBus'],
     mounted () {
-        this.eventBus.$on('update:selected',(name)=>{
-            if(name !== this.name){// 当前组件的this 与传进来的this 不相等  关闭当前组件的手风琴
-                this.close();
+        this.eventBus.$on('update:selected',(names)=>{
+            console.log(names);
+            if(names.indexOf(this.name) >= 0 ){// 当前组件的this 与传进来的this 不相等  关闭当前组件的手风琴
+                this.open = true;
             }else{
-                this.open = true
+                this.open = false;
             }
         })
     },
@@ -36,11 +37,11 @@ export default {
         close(){
             this.open = false;
         },
-        handleShow(){
+        toggle(){
             if(this.open){
-                this.open = false;
+                this.eventBus.$emit('update:removeSelected',this.name)
             }else{
-                this.eventBus.$emit('update:selected',this.name)
+                this.eventBus.$emit('update:addSelected',this.name)
             }
         }
     },

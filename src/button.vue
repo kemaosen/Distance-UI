@@ -52,6 +52,14 @@ import Icon from './icon'
 </script>
 
 <style scoped lang="scss">
+$font-size: 14px;
+$button-height: 32px;
+$button-bg: white;
+$button-active-bg: #eee;
+$border-radius: 4px;
+$color: #333;
+$border-color: #999;
+$border-color-hover: #666;
     @keyframes spin {
         0%{
             trasdform:rotate(0deg);
@@ -61,22 +69,22 @@ import Icon from './icon'
         }
     }
     .g-button{
-        font-size: var(--font-size);
-        height: var(--button-height);
+        font-size: $font-size;
+        height: $button-height;
         padding: 0 1em;
-        border-radius:var(--border-radius);
-        border:1px solid var(--border-color);
-        background-color: var(--button-bg);
+        border-radius:$border-radius;
+        border:1px solid $border-color;
+        background-color: $button-bg;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         /*解决按钮多个不对齐 设置基线对齐*/
         vertical-align: middle;
         &:hover{
-            border-color: var(--border-color-hover);
+            border-color: $border-color-hover;
         }
         &:active{
-            background-color:var(--button-active-bg);
+            background-color: $button-active-bg;
         }
         &:focus{
             outline:none;
