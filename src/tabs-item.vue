@@ -64,8 +64,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$blue:blue;
-$disabled-text-color:grey;
+@import 'var';
 .tabs-item{
     flex-shrink: 0;
     padding: 0 2em;
@@ -75,10 +74,10 @@ $disabled-text-color:grey;
     cursor: pointer;
 
     &.active{
-        color: $blue;
+        color: $color-blue;
     }
     &.disabled{
-        color: $disabled-text-color;
+        color: $color-disabled;
         cursor: not-allowed;
     }
 }

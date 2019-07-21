@@ -40,20 +40,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$tabs-height : 40px;
-$blue:blue;
-$border-solid:#ddd;
+@import 'var';
 .tabs-header{
     display: flex;
-    height: $tabs-height;
+    height: $tabs-toast-height;
     justify-content: flex-start;
     position: relative;
-    border-bottom:1px solid $border-solid;
+    border-bottom:1px solid $border-color-ddd;
     >.line{
         transition: all 350ms;
         position: absolute;
         bottom: 0;
-        border-bottom: 1px solid $blue;
+        border-bottom: 1px solid $border-color-ddd;
     }
     >.action-wrapper{
         margin-left:  auto;
