@@ -36,22 +36,22 @@
     "@vue/component-compiler-utils": "^2.6.0",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
-    "karma": "^4.1.0",
+    "karma": "^4.2.0",
     "karma-chai-spies": "^0.1.4",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
     "karma-sinon-chai": "^2.0.2",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.0",
     "node-sass": "^4.12.0",
     "parcel-bundler": "^1.12.3",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
-    "sass": "^1.17.3",
-    "sass-loader": "^7.1.0",
-    "sinon": "^7.3.2",
+    "sass": "^1.22.9",
+    "sass-loader": "^7.2.0",
+    "sinon": "^7.4.1",
     "sinon-chai": "^3.3.0",
     "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.0.2"
+    "vuepress": "^1.0.3"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"

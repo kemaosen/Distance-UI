@@ -1,7 +1,12 @@
 <!-- 页面 -->
 <template>
     <div class="cascader">
-
+        <div class="triggler">
+            <slot></slot>
+        </div>
+        <div class="popover">
+            <div class="leaver"> </div>
+        </div>
     </div>
 </template>
 
@@ -30,6 +35,6 @@ export default {
 
 <style scoped lang="scss">
 .cascader{
-    
+
 }
 </style>
