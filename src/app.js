@@ -85,6 +85,19 @@ Vue.use(Plugin);
                         ]
                         },
                     ]
+                },
+                {
+                name: '安徽',
+                    children: [
+                        {
+                        name: '合肥',
+                        children: [
+                            {name: '瑶海'},
+                            {name: '蜀山'},
+                            {name: '庐阳'},
+                        ]
+                        },
+                    ]
                 }
             ]
         }
