@@ -58,17 +58,16 @@ export default {
 
 <style lang="scss" scoped>
 @import 'var';
-
-    .warpper{
-        display: inline-flex; align-items: center; font-size: $font-size;
-        > :not(:last-child){margin-right: .5em; } 
-        >input{ height: $input-height; border: 1px solid $border-color; padding: 0 8px; border-radius: $border-radius;
-            &:hover{ border:1px solid $border-color-hover; }
-            &:focus{ box-shadow: inset 0 1px 3px $box-color; outline: none; }
-            &[disabled],&[readonly]{ border-color: #aaa; color: #aaa; cursor: not-allowed; }
-        }
-        &.error{
-            >input{ border: 1px solid $red; } } .icon-error{ fill:$red; }
-        .errorMassage{ color: $red; }
+.warpper{
+    display: inline-flex; align-items: center; font-size: $font-size;
+    > :not(:last-child){margin-right: .5em; } 
+    >input{ height: $input-height; border: 1px solid $border-color; padding: 0 8px; border-radius: $border-radius;
+        &:hover{ border:1px solid $border-color-hover; }
+        &:focus{ box-shadow: inset 0 1px 3px $box-color; outline: none; }
+        &[disabled],&[readonly]{ border-color: #aaa; color: #aaa; cursor: not-allowed; }
     }
+    &.error{
+        >input{ border: 1px solid $red; } } .icon-error{ fill:$red; }
+    .errorMassage{ color: $red; }
+}
 </style>
