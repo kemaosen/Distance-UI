@@ -98,9 +98,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$toast-height:40px;
-$toast-bg:rgba(0,0,0,0.75);
-$toast-size: 14px;
+@import  'var';
+
 @keyframes fade-in{
     0%{opacity: 0;}
     100%{opacity: 1;}
@@ -120,9 +119,9 @@ $toast-size: 14px;
     .toast{
         
         // top: 0;
-        font-size:$toast-size;
+        font-size:$font-size;
         line-height: 1.8;
-        min-height: $toast-height;
+        min-height: $tabs-toast-height;
         display: flex;
         align-items: center;
         background-color: $toast-bg;
