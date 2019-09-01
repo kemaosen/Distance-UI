@@ -1,37 +1,47 @@
 <!-- 页面 -->
 <template>
     <div class="cascader">
+        {{selected}}
         <div class="trigger" @click="popoverVisible = !popoverVisible">
         </div>
 
         <div class="popover" v-if="popoverVisible">
-            <cascader-items :items="source" :height="popoverHeight"></cascader-items>
+            <cascader-items :items="source" :height="popoverHeight" :selected="selected" @update:selected="onUpdateSelected"></cascader-items>
         </div>
     </div>
 </template>
 
 <script>
-import CascaderItems from "./cascader-items";
+import CascaderItems from "./cascader-items.vue";
 export default {
     name: "DistanceCascader",
     props: {
+        // 联动的数据
         source: {
             type: Array
         },
+        // 联动的高度
         popoverHeight: {
             type: String
+        },
+        // 联动的选中数据
+        selected: {
+            type: Array,
+            default: () => { return []; }
         }
     },
-    mounted () {
+    mounted() {
 
     },
-    data () {
+    data() {
         return {
             popoverVisible: false
         };
     },
     methods: {
-
+        onUpdateSelected(newSelected) {
+            this.$emit("update:selected", newSelected);
+        }
     },
     watch: {},
     filters: {},

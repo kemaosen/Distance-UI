@@ -1,14 +1,16 @@
 <!-- 页面 -->
 <template>
     <div class="sourceItem" :style="{height:height}">
+        {{selected[level] &&  selected[level].name}}
+        {{level}}
         <div class="left">
-            <div v-for="(item,index) in items" @click="leftSelected = item" class="label" :key="index">
+            <div v-for="(item,index) in items" @click="handleLabel(item)" class="label" :key="index" >
                 {{item.name}}
                 <icon class="icon" v-if="item.children" name="right"></icon>
             </div>
         </div>
         <div class="right" v-if="rightItems">
-            <cascader-items :items="rightItems" :height="height"></cascader-items>
+            <cascader-items :items="rightItems" :height="height" :selected="selected" @update:selected="handleRightUpdateSelected" :level="level+1" ></cascader-items>
         </div>
     </div>
 </template>
@@ -18,25 +20,63 @@ import icon from "./icon.vue";
 export default {
     name: "cascaderItems",
     props: {
+        // 上级联动的下级数组
         items: {
             type: Array
         },
+        // 联动的高度 从上级传递下来
         height: {
             type: String
+        },
+        // 当前选中的所有数据 从上级传递下来
+        selected: {
+            type: Array,
+            default: () => []
+        },
+        // 当前第几个组件
+        level: {
+            type: Number,
+            default: 0
         }
     },
-    data () {
+    data() {
         return {
-            leftSelected: null
+            // leftSelected: null
         };
     },
+    methods: {
+        // 点击将当前的数据给selected
+        handleLabel(item) {
+            // 这里无法实时更新数据是因为 vue的深入式响应式原理
+            // this.selected[this.level] = item;
+
+            // 直接修改了props 代码就是垃圾 不是单向数据流
+            // this.$set(this.selected, this.level, item);
+
+            // 浅拷贝  先将对象转成字符转，再将字符转转换对象  现在的对象与原本的对象毫无关系
+            let copy = JSON.parse(JSON.stringify(this.selected));
+            copy[this.level] = item;
+            this.$emit("update:selected", copy);
+        },
+        // 元素右边更新
+        handleRightUpdateSelected(newSelected) {
+            console.log(newSelected);
+            this.$emit("update:selected", newSelected);
+        }
+    },
     computed: {
-        rightItems () {
-            if (this.leftSelected && this.leftSelected.children) {
-                return this.leftSelected.children;
+        rightItems() {
+            let currentSelected = this.selected[this.level];
+            if (currentSelected && currentSelected.children) {
+                return currentSelected.children;
             } else {
                 return null;
             }
+            // if (this.leftSelected && this.leftSelected.children) {
+            //     return this.leftSelected.children;
+            // } else {
+            //     return null;
+            // }
         }
     },
     components: {
@@ -46,6 +86,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import './_var.scss';
 .sourceItem{
     display: flex;
     justify-content: flex-start;
