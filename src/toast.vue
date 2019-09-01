@@ -21,7 +21,7 @@ export default {
         autoClose: {
             type: [ Boolean, Number ],
             default: 5,
-            validator (value) {
+            validator(value) {
                 return value === false || typeof value === "number";
             }
         },
@@ -42,40 +42,40 @@ export default {
         position: {
             type: String,
             default: "middle",
-            validator (value) {
+            validator(value) {
                 return [ "top", "bottom", "middle" ].indexOf(value) >= 0;
             }
         }
 
     },
-    mounted () {
+    mounted() {
         this.updateStyles();
         this.execAutoClose();
     },
-    data () {
+    data() {
         return {
 
         };
     },
     methods: {
-        updateStyles () { // 处理父元素使用min-height 线条不显示 通过js设置高度
+        updateStyles() { // 处理父元素使用min-height 线条不显示 通过js设置高度
             this.$nextTick(() => {
                 this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`;
             });
         },
-        execAutoClose () { // 控制是否自动关闭
+        execAutoClose() { // 控制是否自动关闭
             if (this.autoClose) {
                 setTimeout(() => {
                     this.close();
                 }, this.autoClose * 1000);
             }
         },
-        close () {
+        close() {
             this.$el.remove();
             this.$emit("close");
             this.$destroy();
         },
-        onClickClose () {
+        onClickClose() {
             this.close();
             if (this.closeButton && typeof this.closeButton.callback === "function") {
                 this.closeButton.callback();
@@ -85,7 +85,7 @@ export default {
     watch: {},
     filters: {},
     computed: {
-        toastClasses () {
+        toastClasses() {
             return {
                 [`position-${this.position}`]: true
             };

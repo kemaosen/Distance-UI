@@ -7,7 +7,7 @@
 <script>
 export default {
     name: "DistanceGroupButton",
-    mounted () {
+    mounted() {
         for (let node of this.$el.children) {
             if (node.nodeName.toLowerCase() !== "button") {
                 console.warn("g-button=-group的子元素应该都是g-button 但是你使用了" + node.nodeName.toLowerCase());

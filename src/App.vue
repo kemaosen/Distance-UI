@@ -2,7 +2,7 @@
     <div id="app">
         <Button>按钮</Button>
         <p>1111111111111111111</p>
-        <cascader :source="source" popover-height="200px"> </cascader>
+        <cascader :source="source" popover-height="200px" :selected="selected" @update:selected="selected = $event"> </cascader>
         <p>1111111111111111111</p>
     </div>
 </template>
@@ -12,8 +12,9 @@ import Button from "./button.vue";
 import Cascader from "./cascader.vue";
 export default {
     name: "app",
-    data () {
+    data() {
         return {
+            selected: [],
             source: [
                 {
                     name: "浙江",

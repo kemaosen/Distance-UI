@@ -32,7 +32,7 @@ export default {
         iconPosition: {
             type: String,
             default: "left", // 设置默认的值
-            validator (value) {
+            validator(value) {
                 // 验证用户传过来的值 是不是符合规范的 不是就报错 return=false
                 //  方式三
                 // return value === 'left' ||  value === 'right';

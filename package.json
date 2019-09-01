@@ -126,7 +126,8 @@
           "ignores": []
         }
       ],
-      "no-new": "off"
+      "no-new": "off",
+      "space-before-function-paren": ["error", { "anonymous": "never", "named": "never","asyncArrow": "never" }]
     },
     "parserOptions": {
       "parser": "babel-eslint"

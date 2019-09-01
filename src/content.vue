@@ -7,14 +7,14 @@
 
 <script>
 export default {
-    name:'DistanceContent',
-    mounted () {
+    name: "DistanceContent",
+    mounted() {
 
     },
     data() {
         return {
 
-        }
+        };
     },
     methods: {
 
@@ -25,7 +25,7 @@ export default {
     components: {
 
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
