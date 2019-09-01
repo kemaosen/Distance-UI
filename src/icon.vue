@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import './svg.js'
-    export default {
-        name:'DistanceIcon',
-        props:['name']
-    }
+import "./svg.js";
+export default {
+    name: "DistanceIcon",
+    props: [ "name" ]
+};
 </script>
 
 <style scoped>

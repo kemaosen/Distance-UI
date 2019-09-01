@@ -2,9 +2,9 @@
 <template>
     <div class="sourceItem" :style="{height:height}">
         <div class="left">
-            <div v-for="item in items" @click="leftSelected = item" class="label">
+            <div v-for="(item,index) in items" @click="leftSelected = item" class="label" :key="index">
                 {{item.name}}
-                <icon class="icon" v-if="item.children" name="right"></icon>    
+                <icon class="icon" v-if="item.children" name="right"></icon>
             </div>
         </div>
         <div class="right" v-if="rightItems">
@@ -14,35 +14,35 @@
 </template>
 
 <script>
-import icon from './icon.vue'
+import icon from "./icon.vue";
 export default {
-    name:'cascaderItems',
-    props:{
-        items:{
-            type:Array,
+    name: "cascaderItems",
+    props: {
+        items: {
+            type: Array
         },
-        height:{
-            type:String,
+        height: {
+            type: String
         }
     },
-    data(){
+    data () {
         return {
-            leftSelected: null,
-        }
+            leftSelected: null
+        };
     },
-    computed:{
-        rightItems(){
-            if(this.leftSelected && this.leftSelected.children){
-                return this.leftSelected.children
-            }else{
-                return null
+    computed: {
+        rightItems () {
+            if (this.leftSelected && this.leftSelected.children) {
+                return this.leftSelected.children;
+            } else {
+                return null;
             }
         }
     },
-    components:{
+    components: {
         icon
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -67,7 +67,7 @@ export default {
     }
 
     .right{
-        border-left: 1px solid #ddd;
+        border-left: 1px solid $border-color-light;
         margin-top: -1px;
         height: 100%;
     }

@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-    <div class="cascader"> 
+    <div class="cascader">
         <div class="trigger" @click="popoverVisible = !popoverVisible">
         </div>
 
@@ -11,24 +11,24 @@
 </template>
 
 <script>
-import CascaderItems from "./cascader-items"
+import CascaderItems from "./cascader-items";
 export default {
-    name:'DistanceCascader',
-    props:{
-        source:{
-            type:Array,
+    name: "DistanceCascader",
+    props: {
+        source: {
+            type: Array
         },
-        popoverHeight:{
-            type:String
+        popoverHeight: {
+            type: String
         }
     },
     mounted () {
 
     },
-    data() {
+    data () {
         return {
-            popoverVisible: false,
-        }
+            popoverVisible: false
+        };
     },
     methods: {
 
@@ -39,7 +39,7 @@ export default {
     components: {
         CascaderItems
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -49,7 +49,7 @@ export default {
         border: 1px solid #ddd;
         height: 32px ;
         width: 100px;
-    }   
+    }
     .popover{
         box-shadow: 0 0 5px rgba(0, 0, 0, .15);
         position: absolute;

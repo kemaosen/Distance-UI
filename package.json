@@ -1,67 +1,154 @@
 {
-    "name": "distance-ui",
-    "version": "0.1.0",
-    "description": "这是一个VueUI组件库Distance",
-    "private": true,
-    "scripts": {
-      "serve": "vue-cli-service serve",
-      "build": "vue-cli-service build",
-      "lint": "vue-cli-service lint",
-      "test:unit": "vue-cli-service test:unit"
+  "name": "distance-ui",
+  "version": "0.1.0",
+  "description": "这是一个VueUI组件库Distance",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "@vue/eslint-config-standard": "^4.0.0",
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-plugin-unit-mocha": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.9.0",
+    "prettier": "^1.18.2",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "dependencies": {
-      "core-js": "^2.6.5",
-      "vue": "^2.6.10"
-    },
-    "devDependencies": {
-      "@vue/cli-plugin-babel": "^3.11.0",
-      "@vue/cli-plugin-eslint": "^3.11.0",
-      "@vue/cli-plugin-unit-mocha": "^3.11.0",
-      "@vue/cli-service": "^3.11.0",
-      "@vue/eslint-config-prettier": "^5.0.0",
-      "@vue/test-utils": "1.0.0-beta.29",
-      "babel-eslint": "^10.0.1",
-      "chai": "^4.1.2",
-      "eslint": "^5.16.0",
-      "eslint-plugin-prettier": "^3.1.0",
-      "eslint-plugin-vue": "^5.0.0",
-      "node-sass": "^4.9.0",
-      "prettier": "^1.18.2",
-      "sass-loader": "^7.1.0",
-      "vue-template-compiler": "^2.6.10"
-    },
-    "eslintConfig": {
-      "root": true,
-      "env": {
-        "node": true
-      },
-      "extends": [
-        "plugin:vue/essential",
-        "@vue/prettier"
-      ],
-      "rules": {},
-      "parserOptions": {
-        "parser": "babel-eslint"
-      },
-      "overrides": [
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {
+      "no-console": "off",
+      "no-debugger": "off",
+      "indent": [
+        "error",
+        4,
         {
-          "files": [
-            "**/__tests__/*.{j,t}s?(x)"
-          ],
-          "env": {
-            "mocha": true
-          }
+          "ObjectExpression": "first"
         }
-      ]
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "semi-spacing": 0,
+      "semi-style": [
+        2,
+        "last"
+      ],
+      "sort-imports": 0,
+      "line-comment-position": [
+        "off"
+      ],
+      "no-multi-spaces": [
+        "error",
+        {
+          "ignoreEOLComments": true
+        }
+      ],
+      "lines-around-comment": 0,
+      "require-jsdoc": 0,
+      "no-unused-expressions": [
+        "error",
+        {
+          "allowShortCircuit": true,
+          "allowTernary": true
+        }
+      ],
+      "no-useless-escape": 0,
+      "array-bracket-spacing": [
+        "error",
+        "always"
+      ],
+      "eqeqeq": [
+        "error",
+        "always",
+        {
+          "null": "ignore"
+        }
+      ],
+      "no-extra-semi": 2,
+      "no-labels": 0,
+      "no-return-assign": [
+        "off"
+      ],
+      "no-tabs": 0,
+      "no-redeclare": 2,
+      "no-unused-vars": [
+        "error",
+        {
+          "vars": "all",
+          "args": "none",
+          "ignoreRestSiblings": false
+        }
+      ],
+      "jsx-quotes": [
+        2,
+        "prefer-double"
+      ],
+      "quotes": [
+        2,
+        "double",
+        {
+          "avoidEscape": true,
+          "allowTemplateLiterals": true
+        }
+      ],
+      "vue/script-indent": [
+        "error",
+        4,
+        {
+          "baseIndent": 0,
+          "switchCase": 0,
+          "ignores": []
+        }
+      ],
+      "no-new": "off"
     },
-    "postcss": {
-      "plugins": {
-        "autoprefixer": {}
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)"
+        ],
+        "env": {
+          "mocha": true
+        }
       }
-    },
-    "browserslist": [
-      "> 1%",
-      "last 2 versions"
     ]
-  }
-  
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

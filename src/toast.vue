@@ -1,7 +1,7 @@
 <!-- Toast -->
 <template>
     <div class="warp" :class="toastClasses">
-        <div class="toast" ref="wrapper" > 
+        <div class="toast" ref="wrapper" >
             <div class="message">
                 <slot v-if="!enableHTML"></slot>
                 <div v-else v-html="$slots.default[0]"></div>
@@ -16,35 +16,35 @@
 
 <script>
 export default {
-    name:"DistanceToast",
-    props:{
-        autoClose:{
-            type:[Boolean,Number],
-            default:5,
-            validator(value){
-                return value === false || typeof value === 'number'
+    name: "DistanceToast",
+    props: {
+        autoClose: {
+            type: [ Boolean, Number ],
+            default: 5,
+            validator (value) {
+                return value === false || typeof value === "number";
             }
         },
         // autoCloseDelay:{
         //     type:Number,
         //     default:5
         // },
-        closeButton:{
-            type:Object,
-            default:()=>{
-                return {text:"关闭",callback:undefined}
+        closeButton: {
+            type: Object,
+            default: () => {
+                return { text: "关闭", callback: undefined };
             }
         },
-        enableHTML:{
-            type:Boolean,
-            default:false,
+        enableHTML: {
+            type: Boolean,
+            default: false
         },
-        position:{
+        position: {
             type: String,
-            default:'middle',
-            validator(value){
-                return ['top','bottom','middle'].indexOf(value) >= 0
-            },
+            default: "middle",
+            validator (value) {
+                return [ "top", "bottom", "middle" ].indexOf(value) >= 0;
+            }
         }
 
     },
@@ -52,49 +52,49 @@ export default {
         this.updateStyles();
         this.execAutoClose();
     },
-    data() {
+    data () {
         return {
 
-        }
+        };
     },
     methods: {
-        updateStyles(){// 处理父元素使用min-height 线条不显示 通过js设置高度
-            this.$nextTick(()=>{
+        updateStyles () { // 处理父元素使用min-height 线条不显示 通过js设置高度
+            this.$nextTick(() => {
                 this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`;
-            })
+            });
         },
-        execAutoClose(){// 控制是否自动关闭
-            if(this.autoClose){
+        execAutoClose () { // 控制是否自动关闭
+            if (this.autoClose) {
                 setTimeout(() => {
                     this.close();
                 }, this.autoClose * 1000);
             }
         },
-        close(){
+        close () {
             this.$el.remove();
-            this.$emit('close');
+            this.$emit("close");
             this.$destroy();
         },
-        onClickClose(){
+        onClickClose () {
             this.close();
-            if(this.closeButton && typeof this.closeButton.callback === 'function'){
-                this.closeButton.callback();    
+            if (this.closeButton && typeof this.closeButton.callback === "function") {
+                this.closeButton.callback();
             }
-        },
+        }
     },
     watch: {},
     filters: {},
     computed: {
-        toastClasses(){
+        toastClasses () {
             return {
-                [`position-${this.position}`]:true,
-            }
+                [`position-${this.position}`]: true
+            };
         }
     },
     components: {
-        
+
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -113,10 +113,10 @@ export default {
 }
 .warp{
     position:fixed;
-    left: 50%; 
+    left: 50%;
     transform: translateX(-50%);
     .toast{
-        
+
         // top: 0;
         font-size:$font-size;
         line-height: 1.8;
@@ -134,14 +134,14 @@ export default {
     }
     &.position-top{top: 0;transform: translateX(-50%);
         animation: sider-top 1s;
-        .toast{border-top-left-radius:0;border-top-right-radius:0}    
+        .toast{border-top-left-radius:0;border-top-right-radius:0}
     }
     &.position-bottom{bottom: 0;transform: translateX(-50%);animation: sider-bottom 1s; .toast{border-bottom-left-radius:0;border-bottom-right-radius:0}    }
     &.position-middle{top: 50%;transform: translate(-50%,-50%);animation: fade-in 1s;}
 }
     .close{
         padding-left: 16px;
-        flex-shrink: 0; 
+        flex-shrink: 0;
     }
     .line{border-left: 1px solid #666;margin-left: 10px;}
 </style>
