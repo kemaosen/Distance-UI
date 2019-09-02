@@ -1,8 +1,6 @@
 <!-- 页面 -->
 <template>
     <div class="sourceItem" :style="{height:height}">
-        {{selected[level] &&  selected[level].name}}
-        {{level}}
         <div class="left">
             <div v-for="(item,index) in items" @click="handleLabel(item)" class="label" :key="index" >
                 {{item.name}}

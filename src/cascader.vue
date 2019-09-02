@@ -1,8 +1,8 @@
 <!-- 页面 -->
 <template>
     <div class="cascader">
-        {{selected}}
         <div class="trigger" @click="popoverVisible = !popoverVisible">
+            {{result}}
         </div>
 
         <div class="popover" v-if="popoverVisible">
@@ -45,7 +45,13 @@ export default {
     },
     watch: {},
     filters: {},
-    computed: {},
+    computed: {
+        result() {
+            return this.selected.map((item) => {
+                return item.name;
+            }).join("/");
+        }
+    },
     components: {
         CascaderItems
     }
@@ -53,12 +59,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import './_var.scss';
 .cascader{
     position: relative;
+    height: $input-height;
     .trigger{
-        border: 1px solid #ddd;
-        height: 32px ;
-        width: 100px;
+        border: 1px solid $border-color;
+        height: $input-height;
+        min-width: 10em;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 1em;
+
     }
     .popover{
         box-shadow: 0 0 5px rgba(0, 0, 0, .15);
@@ -68,6 +80,7 @@ export default {
         background-color: #fff;
         border: 1px solid #ddd;
         height: 200px;
+        margin-top: 4px;
     }
 }
 </style>
