@@ -12,87 +12,86 @@
 
 <script>
 export default {
-    name:'DistancePopover',
-    mounted(){
-        if(this.trigger === 'click'){
-            this.$refs.popover.addEventListener('click', ()=>{ this.open(); })
-        }else{
-            this.$refs.popover.addEventListener('mouseenter', ()=>{ this.open(); })
-            this.$refs.popover.addEventListener('mouseleave', ()=>{ this.close(); })
+    name: "DistancePopover",
+    mounted() {
+        if (this.trigger === "click") {
+            this.$refs.popover.addEventListener("click", () => { this.open(); });
+        } else {
+            this.$refs.popover.addEventListener("mouseenter", () => { this.open(); });
+            this.$refs.popover.addEventListener("mouseleave", () => { this.close(); });
         }
     },
-    destroyed(){
-        if(this.trigger === 'click'){
-            this.$refs.popover.removeEventListener('click', ()=>{ this.open(); })
-        }else{
-            this.$refs.popover.removeEventListener('mouseenter', ()=>{ this.open(); })
-            this.$refs.popover.removeEventListener('mouseleave', ()=>{ this.close(); })
-
+    destroyed() {
+        if (this.trigger === "click") {
+            this.$refs.popover.removeEventListener("click", () => { this.open(); });
+        } else {
+            this.$refs.popover.removeEventListener("mouseenter", () => { this.open(); });
+            this.$refs.popover.removeEventListener("mouseleave", () => { this.close(); });
         }
     },
     data() {
-        return { visible:false, }
+        return { visible: false };
     },
-    props:{
-        position:{
-            type:String,
-            default:'top',
-            validator(value){
-                return ['top','bottom','left','right'].indexOf(value) >= 0;
+    props: {
+        position: {
+            type: String,
+            default: "top",
+            validator(value) {
+                return [ "top", "bottom", "left", "right" ].indexOf(value) >= 0;
             }
         },
-        trigger:{
-            type:String,
-            default:'click',
-            validator(value){
-                return ['click','hover'].indexOf(value) >= 0;
-            },
+        trigger: {
+            type: String,
+            default: "click",
+            validator(value) {
+                return [ "click", "hover" ].indexOf(value) >= 0;
+            }
         }
     },
     methods: {
-        positionContent(){// 显示弹出内容 并定位到当前点击位置
-            const {contentWrapper,triggerWrapper} = this.$refs;
+        positionContent() { // 显示弹出内容 并定位到当前点击位置
+            const { contentWrapper, triggerWrapper } = this.$refs;
             document.body.appendChild(contentWrapper);
-            let {width,height,left, top} = triggerWrapper.getBoundingClientRect();
-            let {height:height2} =  contentWrapper.getBoundingClientRect();
+            let { width, height, left, top } = triggerWrapper.getBoundingClientRect();
+            let { height: height2 } = contentWrapper.getBoundingClientRect();
 
-            let x={
-                top:{ top:top+window.scrollY, left:left+window.scrollX, },
-                bottom:{ top:top + height + window.scrollY, left:left+window.scrollX, },
-                left:{ left:left+window.scrollX, top:top + window.scrollY +(height - height2)/2, },
-                right:{ left:left+window.scrollX+width, top:top + window.scrollY +(height - height2)/2, },
+            let x = {
+                top: { top: top + window.scrollY, left: left + window.scrollX },
+                bottom: { top: top + height + window.scrollY, left: left + window.scrollX },
+                left: { left: left + window.scrollX, top: top + window.scrollY + (height - height2) / 2 },
+                right: { left: left + window.scrollX + width, top: top + window.scrollY + (height - height2) / 2 }
             };
-            contentWrapper.style.top = x[this.position].top + 'px';
-            contentWrapper.style.left = x[this.position].left + 'px';
-            document.addEventListener('click', this.onClickDocument);
+            contentWrapper.style.top = x[this.position].top + "px";
+            contentWrapper.style.left = x[this.position].left + "px";
+            document.addEventListener("click", this.onClickDocument);
         },
-        onClickDocument(e){// e当前点击的元素
-            if(this.$refs.popover && 
-            (this.$refs.popover.contains(e.target) || this.$refs.popover.contains(e.target))){return }// 如果文字内容中又e.target  那么 啥也不执行
-            if(this.$refs.contentWrapper && 
-            (this.$refs.contentWrapper.contains(e.target) || this.$refs.contentWrapper.contains(e.target))){return }// 如果文字内容中又e.target  那么 啥也不执行
+        onClickDocument(e) { // e当前点击的元素
+            if (this.$refs.popover &&
+                (this.$refs.popover.contains(e.target) || this.$refs.popover.contains(e.target))) { return; }// 如果文字内容中又e.target  那么 啥也不执行
+            if (this.$refs.contentWrapper &&
+                (this.$refs.contentWrapper.contains(e.target) || this.$refs.contentWrapper.contains(e.target))) { return; }// 如果文字内容中又e.target  那么 啥也不执行
 
             this.close();
         },
-        close(){
+        close() {
             this.visible = false;
-            document.removeEventListener('click',this.onClickDocument);
+            document.removeEventListener("click", this.onClickDocument);
         },
-        open(){
-            this.visible  = true;
-            this.$nextTick(()=>{
+        open() {
+            this.visible = true;
+            this.$nextTick(() => {
                 this.positionContent();
-            })
+            });
         },
-        onClick(event){
-            if(this.$refs.triggerWrapper.contains(event.target)){
-                if(this.visible === true){
+        onClick(event) {
+            if (this.$refs.triggerWrapper.contains(event.target)) {
+                if (this.visible === true) {
                     this.close();
-                }else{
+                } else {
                     this.open();
                 }
             }
-        },
+        }
     },
     watch: {},
     filters: {},
@@ -101,7 +100,7 @@ export default {
     components: {
 
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -194,4 +193,3 @@ export default {
     }
 }
 </style>
-

@@ -116,7 +116,6 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     .toast{
-
         // top: 0;
         font-size:$font-size;
         line-height: 1.8;

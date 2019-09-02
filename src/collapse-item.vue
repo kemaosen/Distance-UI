@@ -56,11 +56,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$border-color: #ddd;
-$border-radius: 4px;
+@import 'var';
+
 .collapseTitle{
     .title{
-        border: 1px solid $border-color;
+        border: 1px solid $border-color-ddd;
         margin: -1px;
         display: flex;
         min-height: 32px;
