@@ -45,7 +45,7 @@ export default {
         };
     },
     methods: {
-        // 点击将当前的数据给selected
+        // 点击联动中的某项 将当前的数据给selected保存起来
         handleLabel(item) {
             // 这里无法实时更新数据是因为 vue的深入式响应式原理
             // this.selected[this.level] = item;
@@ -56,11 +56,11 @@ export default {
             // 浅拷贝  先将对象转成字符转，再将字符转转换对象  现在的对象与原本的对象毫无关系
             let copy = JSON.parse(JSON.stringify(this.selected));
             copy[this.level] = item;
+            copy.splice(this.level + 1);// 删除后面联动的数据   列点击了一个删除后面所有上次的联动数据
             this.$emit("update:selected", copy);
         },
         // 元素右边更新
         handleRightUpdateSelected(newSelected) {
-            console.log(newSelected);
             this.$emit("update:selected", newSelected);
         }
     },
